@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+
 gem 'devise', '2.1.2'
 #gem 'ProDetail'
 gem 'carrierwave'
 gem 'will_paginate'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-
+gem 'rails_12factor'
 group :development, :test do
   gem 'sqlite3'
 end
@@ -36,7 +37,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-gem 'unicorn'
+#gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
