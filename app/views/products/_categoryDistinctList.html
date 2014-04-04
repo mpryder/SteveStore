@@ -1,0 +1,7 @@
+ <% @products = Product.select('DISTINCT category') %>
+  <div class="categoryListAll">
+  	  <% @products.each do | c | %>  
+  	  <a href="/category/<%= c.category %>" id="categorylisting"><%= c.category %></a> 
+  	  <br /> 
+  	  <% end %> 
+  </div> 

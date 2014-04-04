@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DemoApp4</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="wrapper">
+		<div id="header">
+			<h1>Steve's Scuba Store</h1>
+		</div>
+			<div id="navbar">
+			<ul>
+				<li><a href="/home">Home</a></li>
+				<li><a href="/about">About Us</a></li>
+				<li><a href="/contact">Contact Us</a></li>
+				<li><a href="/products">Products</a></li>
+					<% if user_signed_in? %>
+				<li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+					<div id="welcome">
+				<li>Welcome <%= current_user.firstname %></li>
+					</div>
+					<% else %>
+				<li><%= link_to 'Login', new_user_session_path %></li>
+				<li><%= link_to 'Register', new_user_registration_path %></li>
+					<% end %>
+			</ul>
+			</div>
+					<div id="content">
+				<div id="side">
+					<p class="notice"><%= notice %></p>
+						<p class="alert"><%= alert %></p>
+					<h2>Categories</h2>
+						<%= render '/products/categoryDistinctList' %>
+				</div>
+					
+						
+						<%= yield %>
+					</div>
+</div>
+</body>
+</html>

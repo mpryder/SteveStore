@@ -1,0 +1,33 @@
+
+
+<p>
+  <b>Order date:</b>
+  <%= @order.order_date.strftime('%H:%M:%S %d-%m-%Y') %>
+</p>
+
+
+
+<p>
+	<b>Name:</b>
+ 	<%= @order.firstname %> <%= @order.lastname %>
+</p>
+
+<p>
+	<b>Address:</b>
+	<%= @order.address %>
+</p>
+<table id="orderitem">
+	<th>Product Name</th>
+	<th>Quantity</th>
+	<th>Price</th>
+	<% @orderitems.each do |orderitem|%>
+<tr><td><%= orderitem.name %></td>
+<td><%= orderitem.quantity %></td>
+<td><%= number_to_currency(orderitem.price, :unit =>"€") %></td></tr>
+
+<% end %>
+</table>
+
+<%= link_to 'Your Orders', orders_path %> 
+
+<%= link_to 'Back to shopping', :controller => :products %>

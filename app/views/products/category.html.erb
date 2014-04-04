@@ -1,0 +1,39 @@
+
+
+<h2><%= @category %></h2>
+ 
+ 	
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Make</th>
+    <th>Price</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+  	<td><%= image_tag product.image_url, :style => "height:75px" %></td>
+    <td><%= link_to product.name, product %></td>
+    <td><%= product.make %></td>
+    <td><%= number_to_currency(product.price, :unit => "€") %></td>
+    <td><a href="/cart/<%= product.id %>">Add to Cart</a></td>
+    <% if user_signed_in? %>
+    <% if current_user.admin? %> 
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+<% if user_signed_in? %>
+<% if current_user.admin? %>
+<%= link_to 'New Product', new_product_path %>
+<% end %>
+<% end %>

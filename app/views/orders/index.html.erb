@@ -1,0 +1,24 @@
+<h1>Listing orders</h1>
+
+<table>
+  <tr>
+    <th>Order date</th>
+    <th>User Id</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.order_date.strftime('%H:%M:%S %d-%m-%Y') %></td>
+    <td><%= order.user_id %></td>
+   
+    <td><%= link_to 'Show Order Items', order %></td>
+   
+  </tr>
+<% end %>
+</table>
+
+<br />
+<%= link_to 'Back to shopping', :controller => :products %>
