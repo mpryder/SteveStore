@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  require 'ProDetail'
+  
   # GET /profiles
   # GET /profiles.json
   def index
@@ -46,8 +46,8 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(params[:profile])
     
-    @p1 = ::ProDetail.new("ProfileDetail.txt")
-    @p1.addPerson(params[:profile][:firstname],params[:profile][:lastname],params[:profile][:address],params[:profile][:mobile],params[:profile][:created_at])
+   # @p1 = ::ProDetail.new("ProfileDetail.txt")
+    #@p1.addPerson(params[:profile][:firstname],params[:profile][:lastname],params[:profile][:address],params[:profile][:mobile],params[:profile][:created_at])
     
     respond_to do |format|
       if @profile.save
