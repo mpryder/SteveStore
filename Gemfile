@@ -8,7 +8,7 @@ gem 'carrierwave'
 gem 'will_paginate'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-#gem 'rails_12factor'
+gem 'rails_12factor'
 group :development, :test do
   gem 'sqlite3'
 end
