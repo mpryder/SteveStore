@@ -16,8 +16,8 @@
 
 <% @products.each do |product| %>
   <tr>
-  	<td><%= link_to (image_tag product.image_url_url.to_s, :style => "height:75px" ), product %></td>
-    <td><%= product.name %></td>
+  	<td><%= image_tag product.image_url, :style => "height:75px" %></td>
+    <td><%= link_to product.name, product %></td>
     <td><%= product.make %></td>
     <td><%= number_to_currency(product.price, :unit => "€") %></td>
     <td><a href="/cart/<%= product.id %>">Add to Cart</a></td>
